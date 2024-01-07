@@ -162,3 +162,8 @@ CORS_ORIGIN_WHITELIST=(
     'http://localhost:3000',
     'http://localhost:8000',# for other applications
 )
+# settings.py
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
