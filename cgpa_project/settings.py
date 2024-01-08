@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_auth.registration',
     'user_profile.apps.UserProfileConfig',
+    'corsheaders',
     
     'userregistration',
     'cgpa_logic',
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -145,3 +147,24 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+REST_FRAMEWORK= {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        #"rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+
+    ],
+    
+}
+
+CORS_ORIGIN_WHITELIST=(
+    'http://localhost:3000',
+    'http://localhost:8000',# for other applications
+)
+# settings.py
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
