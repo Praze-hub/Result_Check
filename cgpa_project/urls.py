@@ -25,6 +25,6 @@ urlpatterns = [
     path('api/rest-auth/', include('rest_auth.urls')),
     path('api/rest-auth/registration/',include('rest_auth.registration.urls')),
     path('password/reset/confirm/<str:uidb64>/<str:token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-
+    path('api/calculate',include('cgpa_logic.urls')),
 ]    
 

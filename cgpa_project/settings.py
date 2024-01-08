@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'user_profile.apps.UserProfileConfig',
     
     'userregistration',
+    'cgpa_logic',
     
 
 ]
