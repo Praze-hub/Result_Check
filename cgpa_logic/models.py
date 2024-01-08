@@ -16,6 +16,6 @@ class Course(models.Model):
     credit_units = models.PositiveIntegerField(null = True)
     
     def grade_point(self):
-        grade_mapping = {'A':5.0,'B':4.0,'C':3.0,'D':2.0,'E':1.0,'F':1.0}
+        grade_mapping = {'A':5.0,'B':4.0,'C':3.0,'D':2.0,'E':1.0,'F':0.0}
         return grade_mapping.get(self.grade, 0.0)
 
