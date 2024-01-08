@@ -28,7 +28,12 @@ urlpatterns = [
     path('api/rest-auth/registration/',include('rest_auth.registration.urls')),
     path('password/reset/confirm/<str:uidb64>/<str:token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
 
-]
+    path('api/calculate',include('cgpa_logic.urls')),
+]    
+
+
+ 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
