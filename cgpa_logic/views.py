@@ -20,8 +20,23 @@ class CGPACalculator(APIView):
                 return Response({"error": "Total credit units cannot be zero"}, status=status.HTTP_400_BAD_REQUEST)
             
             cgpa = total_grade_points/total_credit_units
+            print('works')
+            # new
+            # user = self.request.user
+            # print(self.request.user)
+            # cgpa_saved_data = {'user':user, 'cgpa':cgpa}
+            # cgpa_saved_serializer = CourseSerializer(data = cgpa_saved_data)
+
+            # if cgpa_saved_serializer.is_valid():
+            #     cgpa_saved_serializer.save()
+            #     print('saved')
+            #     return Response({'cgpa':cgpa, 'saved':True}, status=status.HTTP_200_OK)
+            # else:
+            #     return Response(cgpa_saved_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            # new
             return Response({"cgpa":cgpa}, status=status. HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
 
 
