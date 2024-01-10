@@ -11,6 +11,7 @@ class Course(models.Model):
         ('E', 'E'),
         ('F', 'F'),
     ]
+    user = models.ForeignKey(UserProfile, on_delete = models.CASCADE, null = True)
     name = models.CharField(max_length=255, null=True)
     grade = models.CharField(max_length=1, choices = GRADE_CHOICES, null=True)
     credit_units = models.PositiveIntegerField(null = True)
