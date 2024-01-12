@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     #third party apps
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_swagger',
+    'drf_yasg',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -55,6 +57,9 @@ INSTALLED_APPS = [
 
 ]
 
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
@@ -68,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 
     # 'allauth.account.middleware.AccountMiddleware',
 
@@ -152,7 +158,7 @@ REST_FRAMEWORK= {
         "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        #"rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
 
     ],
