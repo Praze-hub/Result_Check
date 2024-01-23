@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.functional import SimpleLazyObject
 
 
-
+@csrf_exempt
 class CGPACalculator(APIView):
     def post(self, request, format=None):
         serializer = CourseSerializer(data=request.data, many=True)
